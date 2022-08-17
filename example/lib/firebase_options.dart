@@ -44,39 +44,40 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: '',
-    appId: '',
-    messagingSenderId: '',
-    projectId: '',
-    authDomain: '',
-    storageBucket: '',
+    apiKey: 'AIzaSyA1ytG1JqRo6nkgE1UgDUNVKuH5f7feYQw',
+    appId: '1:558955224418:web:4d68c36887c20bd21ea03b',
+    messagingSenderId: '558955224418',
+    projectId: 'test-db-5ff6b',
+    authDomain: 'test-db-5ff6b.firebaseapp.com',
+    storageBucket: 'test-db-5ff6b.appspot.com',
+    measurementId: 'G-4WFDXHYPHD',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: '',
-    appId: '',
-    messagingSenderId: '',
-    projectId: '',
-    storageBucket: '',
+    apiKey: 'AIzaSyAK-stXVm2rNHzc7hXhlZcGDJ0JDzuhJ4o',
+    appId: '1:558955224418:android:7e48a917fe92bb861ea03b',
+    messagingSenderId: '558955224418',
+    projectId: 'test-db-5ff6b',
+    storageBucket: 'test-db-5ff6b.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: '',
-    appId: '',
-    messagingSenderId: '',
-    projectId: '',
-    storageBucket: '',
-    iosClientId: '',
-    iosBundleId: '',
+    apiKey: 'AIzaSyB3xBqCod90YY-P8gK1O_tu1Abz2-lOKV4',
+    appId: '1:558955224418:ios:43fdb8195fb6eb101ea03b',
+    messagingSenderId: '558955224418',
+    projectId: 'test-db-5ff6b',
+    storageBucket: 'test-db-5ff6b.appspot.com',
+    iosClientId: '558955224418-ns1a1ec11npo71qe5jrcp2dbldv7qsnj.apps.googleusercontent.com',
+    iosBundleId: 'com.example',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: '',
-    appId: '',
-    messagingSenderId: '',
-    projectId: '',
-    storageBucket: '',
-    iosClientId: '',
-    iosBundleId: '',
+    apiKey: 'AIzaSyB3xBqCod90YY-P8gK1O_tu1Abz2-lOKV4',
+    appId: '1:558955224418:ios:43fdb8195fb6eb101ea03b',
+    messagingSenderId: '558955224418',
+    projectId: 'test-db-5ff6b',
+    storageBucket: 'test-db-5ff6b.appspot.com',
+    iosClientId: '558955224418-ns1a1ec11npo71qe5jrcp2dbldv7qsnj.apps.googleusercontent.com',
+    iosBundleId: 'com.example',
   );
 }
