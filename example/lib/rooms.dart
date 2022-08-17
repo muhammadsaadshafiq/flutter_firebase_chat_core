@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +10,8 @@ import 'package:flutter_firebase_chat_core/flutter_firebase_chat_core.dart';
 import 'chat.dart';
 import 'firebase_options.dart';
 import 'login.dart';
+import 'models/custom_message.dart';
+import 'repo/custom_message_repo.dart';
 import 'users.dart';
 import 'util.dart';
 
@@ -105,6 +109,7 @@ class _RoomsPageState extends State<RoomsPage> {
                   itemCount: snapshot.data!.length,
                   itemBuilder: (context, index) {
                     final room = snapshot.data![index];
+                    log('room last mesg ${room.lastMessages.toString()}');
 
                     return GestureDetector(
                       onTap: () {
@@ -121,11 +126,37 @@ class _RoomsPageState extends State<RoomsPage> {
                           horizontal: 16,
                           vertical: 8,
                         ),
-                        child: Row(
-                          children: [
-                            _buildAvatar(room),
-                            Text(room.name ?? ''),
-                          ],
+                        child: ListTile(
+                          title: Text(room.name ?? ''),
+                          leading: _buildAvatar(room),
+                          subtitle: StreamBuilder<List<CustomMessage>>(
+                            stream: CustomMessageRepo.instance.getMessages(
+                              room.id,
+                            ),
+                            builder:
+                                (BuildContext context, AsyncSnapshot snapshot) {
+                              if (snapshot.hasError ||
+                                  !snapshot.hasData ||
+                                  snapshot.data == null ||
+                                  snapshot.data.isEmpty) {
+                                log(snapshot.error.toString());
+                                return const SizedBox();
+                              } else {
+                                final List<CustomMessage> messages =
+                                    snapshot.data;
+                                messages.sort((a, b) =>
+                                    a.createdAt.compareTo(b.createdAt));
+
+                                return Text(
+                                  messages.last.text,
+                                  style: const TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.grey,
+                                  ),
+                                );
+                              }
+                            },
+                          ),
                         ),
                       ),
                     );
